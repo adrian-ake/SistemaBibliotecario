@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/01/2018 08:36:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.adrian.ake.sistemabibliotecario.models.Editorial" table="editorial" catalog="biblioteca_aake" optimistic-lock="version">
+        <id name="ideditorial" type="java.lang.Integer">
+            <column name="ideditorial" />
+            <generator class="identity" />
+        </id>
+        <property name="nombres" type="string">
+            <column name="nombres" length="100" not-null="true" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+        <set name="libros" table="libro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="ideditorial" not-null="true" />
+            </key>
+            <one-to-many class="com.adrian.ake.sistemabibliotecario.models.Libro" />
+        </set>
+    </class>
+</hibernate-mapping>

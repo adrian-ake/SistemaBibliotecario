@@ -3,12 +3,14 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.adrian.ake.sistemabibliotecario;
+package com.adrian.ake.sistemabibliotecario.tools;
 
 /**
  *
- * @author adrian.ake
+ * @author adrianake
  */
-public class Main {
-    
+public class SystemEnviroment {
+
+    public static Integer CAJERO = 1;
+    public static Integer ADMINISTRADOR = 2;
 }

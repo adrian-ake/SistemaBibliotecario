@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
 <hibernate-reverse-engineering>
-  <schema-selection match-catalog="posaake"/>
-  <table-filter match-name="ticket"/>
-  <table-filter match-name="producto"/>
+  <schema-selection match-catalog="biblioteca_aake"/>
+  <table-filter match-name="editorial"/>
+  <table-filter match-name="libro"/>
   <table-filter match-name="usuario"/>
-  <table-filter match-name="detalle_ticket"/>
   <table-filter match-name="perfiles"/>
+  <table-filter match-name="autor"/>
+  <table-filter match-name="nacionalidad"/>
+  <table-filter match-name="anaquel"/>
 </hibernate-reverse-engineering>

@@ -5,6 +5,9 @@
  */
 package com.adrian.ake.sistemabibliotecario.controllers;
 
+import com.adrian.ake.sistemabibliotecario.models.Usuario;
+import com.adrian.ake.sistemabibliotecario.services.UsuarioService;
+import javax.annotation.Resource;
 import org.springframework.stereotype.Controller;
 
 /**
@@ -13,5 +16,10 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 public class UsuarioController {
+    @Resource
+    private UsuarioService usuarioService;
+    public Usuario getUsuarioXCredenciales(String correo, String password) {
+        return this.usuarioService.getUsuarioXCredenciales(correo,password);
+    }
     
 }

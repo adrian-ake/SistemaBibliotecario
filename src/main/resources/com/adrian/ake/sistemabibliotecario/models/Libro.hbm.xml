@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/01/2018 08:36:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.adrian.ake.sistemabibliotecario.models.Libro" table="libro" catalog="biblioteca_aake" optimistic-lock="version">
+        <id name="idlibro" type="string">
+            <column name="idlibro" length="13" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="anaquel" class="com.adrian.ake.sistemabibliotecario.models.Anaquel" fetch="select">
+            <column name="idanaquel" not-null="true" />
+        </many-to-one>
+        <many-to-one name="autor" class="com.adrian.ake.sistemabibliotecario.models.Autor" fetch="select">
+            <column name="idautor" not-null="true" />
+        </many-to-one>
+        <many-to-one name="editorial" class="com.adrian.ake.sistemabibliotecario.models.Editorial" fetch="select">
+            <column name="ideditorial" not-null="true" />
+        </many-to-one>
+        <property name="titulo" type="string">
+            <column name="titulo" length="100" not-null="true" />
+        </property>
+        <property name="descripcion" type="string">
+            <column name="descripcion" length="65535" not-null="true" />
+        </property>
+        <property name="mesPublicacion" type="java.lang.Integer">
+            <column name="mes_publicacion" />
+        </property>
+        <property name="anioPublicacion" type="java.lang.Integer">
+            <column name="anio_publicacion" />
+        </property>
+        <property name="activo" type="java.lang.Boolean">
+            <column name="activo" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

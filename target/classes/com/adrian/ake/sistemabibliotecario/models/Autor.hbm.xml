@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/01/2018 08:36:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.adrian.ake.sistemabibliotecario.models.Autor" table="autor" catalog="biblioteca_aake" optimistic-lock="version">
+        <id name="idautor" type="java.lang.Integer">
+            <column name="idautor" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="nacionalidad" class="com.adrian.ake.sistemabibliotecario.models.Nacionalidad" fetch="select">
+            <column name="idpais" not-null="true" />
+        </many-to-one>
+        <property name="nombres" type="string">
+            <column name="nombres" length="100" not-null="true" />
+        </property>
+        <property name="apellidos" type="string">
+            <column name="apellidos" length="100" not-null="true" />
+        </property>
+        <property name="createdAt" type="timestamp">
+            <column name="created_at" length="19" />
+        </property>
+        <property name="updatedAt" type="timestamp">
+            <column name="updated_at" length="19" />
+        </property>
+        <set name="libros" table="libro" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idautor" not-null="true" />
+            </key>
+            <one-to-many class="com.adrian.ake.sistemabibliotecario.models.Libro" />
+        </set>
+    </class>
+</hibernate-mapping>

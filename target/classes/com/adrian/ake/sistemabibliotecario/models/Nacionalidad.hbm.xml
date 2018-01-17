@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 17/01/2018 08:36:33 AM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.adrian.ake.sistemabibliotecario.models.Nacionalidad" table="nacionalidad" catalog="biblioteca_aake" optimistic-lock="version">
+        <id name="idpais" type="java.lang.Integer">
+            <column name="idpais" />
+            <generator class="identity" />
+        </id>
+        <property name="pais" type="string">
+            <column name="pais" length="100" not-null="true" />
+        </property>
+        <property name="nacionalidad" type="string">
+            <column name="nacionalidad" length="100" not-null="true" />
+        </property>
+        <set name="autors" table="autor" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idpais" not-null="true" />
+            </key>
+            <one-to-many class="com.adrian.ake.sistemabibliotecario.models.Autor" />
+        </set>
+    </class>
+</hibernate-mapping>
