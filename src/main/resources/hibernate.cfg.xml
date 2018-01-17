@@ -4,17 +4,13 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/posaake</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/biblioteca_aake</property>
         <property name="hibernate.connection.username">root</property>
-        <property name="hibernate.connection.password">4dm1n.p05</property>
+        <property name="hibernate.connection.password">XXXX</property>
         <property name="hibernate.connection.provider_class">org.hibernate.connection.C3P0ConnectionProvider</property>
         <property name="hibernate.current_session_context_class">thread</property>
         <property name="hibernate.show_sql">false</property>
-        <mapping class="com.aake.pos_aake.models.Usuario"/>
-        <mapping class="com.aake.pos_aake.models.DetalleTicket"/>
-        <mapping class="com.aake.pos_aake.models.Perfiles"/>
-        <mapping class="com.aake.pos_aake.models.Producto"/>
-        <mapping class="com.aake.pos_aake.models.Ticket"/>        
+            
     
     </session-factory>
 </hibernate-configuration>

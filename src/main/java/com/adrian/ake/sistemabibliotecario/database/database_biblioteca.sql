@@ -45,9 +45,8 @@ DROP TABLE IF EXISTS nacionalidad;
 CREATE TABLE nacionalidad (
    idpais int(11) NOT NULL AUTO_INCREMENT primary key,
    pais varchar(100) NOT NULL,
-   nacionalidad varchar(100) NOT NULL,
+   nacionalidad varchar(100) NOT NULL
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
-
 
 DROP TABLE IF EXISTS autor;
 CREATE TABLE autor (
@@ -55,6 +54,8 @@ CREATE TABLE autor (
    idpais int(11) NOT NULL,
    nombres varchar(100) NOT NULL,
    apellidos varchar(100) NOT NULL,
+   created_at timestamp NULL DEFAULT NULL,
+   updated_at timestamp NULL DEFAULT NULL,
    foreign key (idpais) references nacionalidad (idpais)  on delete cascade on update cascade
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
@@ -62,23 +63,16 @@ DROP TABLE IF EXISTS editorial;
 CREATE TABLE editorial (
    ideditorial int(11) NOT NULL AUTO_INCREMENT primary key,   
    nombres varchar(100) NOT NULL,   
-   foreign key (idpais) references nacionalidad (idpais)  on delete cascade on update cascade
+   created_at timestamp NULL DEFAULT NULL,
+   updated_at timestamp NULL DEFAULT NULL   
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 DROP TABLE IF EXISTS anaquel;
 CREATE TABLE anaquel (
-    idlibro varchar(13) NOT NULL primary key,    
-    idautor int(11) NOT NULL, 
-    ideditorial int(11) NOT NULL, 
-    titulo varchar(100) NOT NULL,
-    descripcion text NOT NULL,
-    mes_publicacion int(2) NULL,
-    anio_publicacion int(4) NULL,    
+    idanaquel int(11) NOT NULL primary key,
     activo tinyint(1) DEFAULT '1',
     created_at timestamp NULL DEFAULT NULL,
-    updated_at timestamp NULL DEFAULT NULL,
-    foreign key (idautor) references autor (idautor)  on delete cascade on update cascade,
-    foreign key (ideditorial) references editorial (ideditorial)  on delete cascade on update cascade
+    updated_at timestamp NULL DEFAULT NULL    
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
@@ -87,6 +81,7 @@ CREATE TABLE libro (
     idlibro varchar(13) NOT NULL primary key,    
     idautor int(11) NOT NULL, 
     ideditorial int(11) NOT NULL, 
+    idanaquel int(11) NOT NULL,
     titulo varchar(100) NOT NULL,
     descripcion text NOT NULL,
     mes_publicacion int(2) NULL,
@@ -95,7 +90,8 @@ CREATE TABLE libro (
     created_at timestamp NULL DEFAULT NULL,
     updated_at timestamp NULL DEFAULT NULL,
     foreign key (idautor) references autor (idautor)  on delete cascade on update cascade,
-    foreign key (ideditorial) references editorial (ideditorial)  on delete cascade on update cascade
+    foreign key (ideditorial) references editorial (ideditorial)  on delete cascade on update cascade,
+    foreign key (idanaquel) references anaquel (idanaquel)  on delete cascade on update cascade
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 
